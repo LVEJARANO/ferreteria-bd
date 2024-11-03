@@ -1,11 +1,11 @@
 -- Insertar un usuario
 DELIMITER //
-create procedure spInsertUser(IN p_correo VARCHAR(80),IN p_contrasena TEXT,
-IN p_salt TEXT,IN p_estado VARCHAR(15),IN p_fecha_creacion DATE,IN p_fkrol INT,IN p_fkempleado INT)
+create procedure spInsertUser(IN p_mail VARCHAR(80),IN p_password TEXT,
+IN p_salt TEXT,IN p_state VARCHAR(15),IN p_date DATE,IN p_fkrol INT,IN p_fkemployee INT)
 begin
 	insert into tbl_usuario(usu_correo,usu_contrasena,usu_salt,usu_estado,usu_fecha_creacion,
     tbl_rol_rol_id,tbl_empleado_emp_id) 
-    values(p_correo,p_contrasena,p_salt,p_estado,p_fecha_creacion,p_fkrol,p_fkempleado);
+    values(p_mail,p_password,p_salt,p_state,p_date,p_fkrol,p_fkemployee);
 end//
 DELIMITER ;
 
