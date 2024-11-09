@@ -40,18 +40,16 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE spSelectUserMail(IN p_mail VARCHAR(80))
 BEGIN
-	select usu_correo, usu_contrasena,usu_salt,usu_estado,tbl_rol_rol_id,tbl_rol.rol_nombre
+	select usu_correo, usu_contrasena,usu_salt,usu_estado,tbl_rol.rol_nombre,tbl_permiso.per_id
 	from tbl_usuario
     inner join tbl_rol
-    on tbl_usuario.tbl_rol_rol_id = tbl_rol.rol_id
+    on tbl_rol.rol_id = tbl_usuario.tbl_rol_rol_id 
+    inner join tbl_rol_permiso
+    on tbl_rol.rol_id = tbl_rol_permiso.tbl_rol_rol_id
+    inner join tbl_permiso
+    on tbl_rol_permiso.tbl_permiso_per_id = tbl_permiso.per_id
 	where usu_correo = p_mail;
 END//
 DELIMITER ;
 
--- Eliminar un usuario
-DELIMITER //
-create procedure spDeleteUser(IN p_id INT)
-begin
-	delete from tbl_usuario where usu_id = p_id;
-end//
-DELIMITER ;
+

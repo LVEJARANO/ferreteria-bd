@@ -14,6 +14,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Seleccionar unicamente el id y la descripcion de las Categorias 
+DELIMITER //
+CREATE PROCEDURE spSelectCategoryDDL()
+BEGIN
+	select cat_id,cat_descripcion from tbl_categoria;
+END//
+DELIMITER ;
+
 -- Actualizar una Categoria 
 DELIMITER //
 CREATE PROCEDURE spUpdateCategory(IN p_id INT,IN p_description VARCHAR(45))
