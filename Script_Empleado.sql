@@ -6,3 +6,12 @@ BEGIN
     from tbl_empleado;
 END//
 DELIMITER ;
+
+-- Cuenta cuantos empleados existen
+DELIMITER //
+CREATE PROCEDURE spSelectCountEmployees(OUT total_empleados INT)
+BEGIN
+    SELECT COUNT(emp_id) INTO total_empleados
+    FROM tbl_empleado;
+END//
+DELIMITER ;

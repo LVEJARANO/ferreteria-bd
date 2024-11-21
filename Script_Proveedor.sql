@@ -32,3 +32,12 @@ BEGIN
     set prov_nit = p_nit, prov_nombre = p_name  where prov_id = p_id;
 END//
 DELIMITER ;
+
+-- Cuenta cuantos proveedores existen
+DELIMITER //
+CREATE PROCEDURE spSelectCountProviders(OUT total_proveedores INT)
+BEGIN
+    SELECT COUNT(prov_id) INTO total_proveedores
+    FROM tbl_proveedor;
+END//
+DELIMITER ;
