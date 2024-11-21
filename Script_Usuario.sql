@@ -55,15 +55,6 @@ DELIMITER ;
 
 -- Cuenta cuantos usuarios existen
 DELIMITER //
-CREATE PROCEDURE spSelectCountUsers()
-BEGIN
-	SELECT COUNT(usu_id) as total_usuarios
-	FROM tbl_usuario;
-END//
-DELIMITER ;
-
--- Cuenta cuantos usuarios existen
-DELIMITER //
 CREATE PROCEDURE spSelectCountUsers(OUT total_usuarios INT)
 BEGIN
     SELECT COUNT(usu_id) INTO total_usuarios
